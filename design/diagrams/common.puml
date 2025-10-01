@@ -1,0 +1,103 @@
+@startuml
+
+!startsub variables
+    !$TBD = "<font color=red><b>TBD"
+
+    !procedure $slew($comment)
+        aosq -> acq ++: slewTelescope
+        note left: ($comment)
+        acq -> mcs ++: move*
+        return Completed
+        return Completed
+    !endprocedure
+
+!endsub
+
+!startsub ActivateLGS
+    aosq -> ssLgs ++: selectDeployment
+    note left: Activate LGS calibration source
+    return Completed
+    aosq -> ssLgs ++: setRangeDistance
+    note left: Set LGS calibration source to zenith location
+    return Completed
+!endsub
+
+!startsub ActivateNGS
+    aosq -> ssNgs ++: deploy
+    note left: Activate NGS calibration source
+    return Completed
+    aosq -> ssNgs ++: source
+    note left: Turn on NGS calibration source
+    return Completed
+!endsub
+
+!startsub NSCUBB
+aosq -> nscu ++: deployMirror
+note left: Deploy NSCU mirror
+aosq -> nscu ++: lampPower
+note left: Turn on the visible broadband light in NSCU
+aosq -> nscu ++: shutterOpen
+note left: Open the shutter in NSCU
+return Completed
+& return
+& return
+!endsub
+
+!startsub AcquireLGS
+aosq ->? : See procedure 3.4.2.2
+note left: Acquire LGS guide star
+!endsub
+
+!startsub AcquirePWFS
+aosq ->? : See procedure 3.4.2.3
+note left: Acquire PWFS guide star
+!endsub
+
+!startsub AcquireOIWFS
+aosq ->? : See procedure 3.4.2.4
+note left: Acquire OIWFS guide star
+!endsub
+
+!startsub AcquireHRWFS
+aosq -> nsen ++: BENCH_select_sensor
+note left: Activate NSEN HRWFS mechanism
+return Completed
+aosq -> nsen ++: BENCH_move_sensor
+note left: Select NSEN HRWFS
+return Completed
+aosq -> nsen ++: HRWFS_expose
+note left: Acquire NGS on HRWFS
+return Completed
+!endsub
+
+!startsub InstExposure
+ocs -> irisSq ++: observe
+note left: Take exposure with instrument
+return [Exposure Completed]
+!endsub
+
+!startsub SlewToZenith
+ocs -> mcs ++: move*
+note right: Slew telescope to zenith
+return Completed
+!endsub
+
+!startsub SpiralSearch
+aosq ->?: $TBD
+hnote over aosq: Spiral Search (TBD)
+!endsub
+
+!startsub ImagerExposure
+aosq -> acq ++: takeScienceExposure
+acq -> irisImager ++: expose
+note left: take exposure with instrument
+return Completed
+return Completed
+!endsub
+
+/'
+aosq -> ++:
+note left:
+return Completed
+'/
+@enduml
