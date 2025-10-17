@@ -7,13 +7,13 @@ participant "ESW\nOCS-AO\n//ESW.ocsao//" as ocsao
 
 ocs -> aosq ++: Start calibration
 loop For various telescope positions
-aosq -> ocsao ++: Move telescope
-ocsao -> tcs ++: move telescope
+aosq -> acq ++: Move telescope
+acq -> tcs ++: move telescope
 return Completed
 return Completed
 aosq -> aosq: Perform calibration/measurement
-aosq -> ocsao ++: Take inst image
-ocsao -> irisImager ++: Take image
+aosq -> acq ++: Take inst image
+acq -> irisImager ++: Take image
 return Completed
 return Completed
 aosq -> aosq : Perform calibration/measurement

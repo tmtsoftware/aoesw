@@ -5,8 +5,16 @@
 
     !procedure $slew($comment)
         aosq -> acq ++: slewTelescope
-        note left: ($comment)
+        note left: $comment
         acq -> mcs ++: move*
+        return Completed
+        return Completed
+    !endprocedure
+
+    !procedure $offset($comment)
+        aosq -> acq ++: offsetTelescope
+        note left: $comment
+        acq -> mcs ++: offset*
         return Completed
         return Completed
     !endprocedure
@@ -44,29 +52,43 @@ return Completed
 !endsub
 
 !startsub AcquireLGS
-aosq ->? : See procedure 3.4.2.2
+aosq ->o? : See procedure 5.4.2.4 [A4]
 note left: Acquire LGS guide star
 !endsub
 
 !startsub AcquirePWFS
-aosq ->? : See procedure 3.4.2.3
+aosq ->o? : See procedure 5.4.2.5 [A5,A7]
 note left: Acquire PWFS guide star
 !endsub
 
-!startsub AcquireOIWFS
-aosq ->? : See procedure 3.4.2.4
-note left: Acquire OIWFS guide star
+!startsub AcquireTtfWFS
+aosq ->o? : See procedure 5.4.2.6 [A6]
+note left: Acquire WFS TTF guide star
 !endsub
+
+!startsub AcquireTtWFS
+aosq ->o? : See procedure 5.4.2.7 [A8]
+note left: Acquire TT WFS guide star
+!endsub
+
+!startsub AcquireLoTruthWFS
+aosq ->o? : See procedure 5.4.2.8 [A9]
+note left: Acquire TT Truth WFS guide star
+!endsub
+
 
 !startsub AcquireHRWFS
 aosq -> nsen ++: BENCH_select_sensor
-note left: Activate NSEN HRWFS mechanism
+note left: Activate NSEN HRWFS camera
 return Completed
 aosq -> nsen ++: BENCH_move_sensor
-note left: Select NSEN HRWFS
+note left: Move NSEN stage to HRWFS
+return Completed
+aosq -> nsen ++: HRWFS_config_exposure
+note left: Configure NSEN HRWFS camera
 return Completed
 aosq -> nsen ++: HRWFS_expose
-note left: Acquire NGS on HRWFS
+note left: Take NSEN HRWFS exposures
 return Completed
 !endsub
 
@@ -83,7 +105,7 @@ return Completed
 !endsub
 
 !startsub SpiralSearch
-aosq ->?: $TBD
+aosq ->o?: $TBD
 hnote over aosq: Spiral Search (TBD)
 !endsub
 

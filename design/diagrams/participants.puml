@@ -1,31 +1,42 @@
+
+' Non-AO Participants are to the left of AOSQ
+participant "ESW\nTop Level Seq\n//ESW.ocs.tls//" as ocs
+
 participant "TCS\nSequencer\n//TCS.tcsSeq//" as tcs
 participant "TCS\nMount Control\n//TCS.mcsa//" as mcs
+participant "M1 Control\nSystem\n//m1cs//" as m1cs
 
-participant "ESW\nTop Level Seq\n//ESW.ocs.tls//" as ocs
-participant "ESW\nAcquisition Seq\n//ESW.ocs.acq//" as acq
+participant "IRIS\nInst Sequencer\n//IRIS.is//" as irisSq
+participant "IRIS\nImager\n//IRIS.imager.detector//" as irisImager
+participant "IRIS\nData Reduction\n//IRIS.drs//" as irisDrs
 
 participant "AOESW\nAO Sequencer\n//AOESW.aosq//" as aosq
+participant "ESW\nAcquisition Seq\n//ESW.ocs.acq//" as acq
 participant "AOESW\nRPG\n//AOESW.rpg//" as rpg
 participant "AOESW\nPSFR\n//AOESW.psfr//" as psfr
 
+' AO Participants are to the right of AOSQ
 participant "NFIRAOS\nISM\n//NFIRAOS.ism//" as ism
 participant "NFIRAOS\nNSCU\n//NFIRAOS.nscu//" as nscu
 participant "NFIRAOS\nTiming\n//NFIRAOS.timing//" as timing
 participant "NFIRAOS\nRTC\n//NFIRAOS.rtc//" as rtc
 participant "NFIRAOS\nPWFS\n//NFIRAOS.pwfs//" as pwfs
-participant "NFIRAOS\nNGS SSM\n//NFIRAOS.ngsSsm//" as ngsSsm
-participant "NFIRAOS\nNGS ADC\n//NFIRAOS.ngsAdc//" as ngsAdc
 participant "NFIRAOS\nBeam Splitter\n//NFIRAOS.bs//" as bs
 participant "NFIRAOS\nTrombone\n//NFIRAOS.trombone//" as trombone
 participant "NFIRAOS\nNSEN\n//NFIRAOS.nsen//" as nsen
 participant "NFIRAOS\nNGS Source Sim\n//NFIRAOS.ssNgs//" as ssNgs
-participant "NFIRAOS\nLGS WFS\n//NFIRAOS.lfsWfs//" as lgsWfs
+participant "NFIRAOS\nLGS WFS\n//NFIRAOS.lgsWfs//" as lgsWfs
 participant "NFIRAOS\nLGS Source Simulator\n//NFIRAOS.ssLgs//" as ssLgs
+participant "NFIRAOS\nNGS ADC\n//NFIRAOS.vnwFsm//" as vnwAdc
 participant "NFIRAOS\nNGS WFS FSM\n//NFIRAOS.vnwFsm//" as vnwFsm
 participant "NFIRAOS\nNGS Star Selection\n//NFIRAOS.vnwSsm//" as vnwSsm
 participant "NFIRAOS\nNGS Field Stop\n//NFIRAOS.vnwFieldStop//" as vnwFieldStop
+participant "NFIRAOS\nDeformable Mirror\n//NFIRAOS.dm//" as dm
+participant "NFIRAOS\nTip/Tilt Stage\n//NFIRAOS.tts//" as tts
+participant "NFIRAOS\nPower Control\n//NFIRAOS.power//" as power
 
 participant "LGSF\nLGSF Sequencer\n//AOESW.aosq.lgsf//" as lgsf
+participant "LGSF\nPower Control\n//LGSF.power//" as lgsfPower
 participant "LGSF\nLaser System\n//LGSF.las//" as lgsfLaser
 participant "LGSF\nLow Power Mech\n//LGSF.lp//" as lgsfLp
 participant "LGSF\nOptical Path\n//LGSF.op//" as lgsfOp
@@ -36,13 +47,9 @@ participant "LGSF\nPAC\n//LGSF.pac//" as lgsfPac
 participant "LGSF\nDSWFS\n//LGSF.dswfs//" as lgsfDswfs
 participant "LGSF\nAcquisition\n//LGSF.acq//" as lgsfAcq
 
-participant "IRIS\nInst Sequencer\n//IRIS.is//" as irisSq
 participant "IRIS\nOIWFS<n> Detector\n//IRIS.oiwfs<n>.detector//" as oiwfsDetector
 participant "IRIS\nInst Rotator\n//IRIS.rotator//" as rotator
 participant "IRIS\nOIWFS<n> ADC\n//IRIS.oiwfs<n>.adc//" as oiwfsAdc
 participant "IRIS\nOIWFS<n> POA\n//IRIS.oiwfs<n>.poa//" as oiwfsPoa
 participant "IRIS\nODGW\n//IRIS.imager.odgw//" as odgw
-participant "IRIS\nImager\n//IRIS.imager.detector//" as irisImager
-participant "IRIS\nData Reduction\n//IRIS.drs//" as irisDrs
 
-participant "M1 Control\nSystem\n//m1cs//" as m1cs
