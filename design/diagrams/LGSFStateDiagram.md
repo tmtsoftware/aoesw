@@ -6,18 +6,18 @@
 
 state "On-Low" as Low
 Off -down-> Standby
+Standby -up-> Off
 Standby -down-> Ready
-On --> Observation
 Ready -up-> Standby
 Ready -down-> On
+Ready -right-> Low
 Low -> On
 Low -> Ready
-Ready -right-> Low
-On -> Ready
+On -up-> Ready
+On -down-> Observation
 Observation -> On
-Observation -up[#red,dashed]-> Off
-Standby -> Off
-Ready -up[#red,dashed]-> Off
-Low -up[#red,dashed]-> Off
+Observation -[#red,dashed]-> Off
+Ready -[#red,dashed]-> Off
+Low -[#red,dashed]-> Off
 On -up[#red,dashed]-> Off
 ```
