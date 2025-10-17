@@ -5,25 +5,19 @@
  '/
 
 state "On-Low" as Low
-state "On-Medium" as Medium
-Low : (Maintenance Only)
-Medium: (Calibration Only)
-Off --> Standby
-Standby --> Ready
-Standby -> Low
-Ready --> Medium
-Medium --> On
+Off -down-> Standby
+Standby -down-> Ready
 On --> Observation
-Ready -> Standby
-Observation -> Standby
-Medium -> Ready
-Ready -> On
+Ready -up-> Standby
+Ready -down-> On
+Low -> On
+Low -> Ready
+Ready -right-> Low
 On -> Ready
 Observation -> On
-Observation -> Off
+Observation -up[#red,dashed]-> Off
 Standby -> Off
-Ready -> Off
-Medium -> Off
-Low -> Off
-On -> Off
+Ready -up[#red,dashed]-> Off
+Low -up[#red,dashed]-> Off
+On -up[#red,dashed]-> Off
 ```
