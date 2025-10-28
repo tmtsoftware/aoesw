@@ -22,7 +22,7 @@ participant "NFIRAOS\nTiming\n//NFIRAOS.timing//" as timing
 participant "NFIRAOS\nRTC\n//NFIRAOS.rtc//" as rtc
 participant "NFIRAOS\nPWFS\n//NFIRAOS.pwfs//" as pwfs
 participant "NFIRAOS\nBeam Splitter\n//NFIRAOS.bs//" as bs
-participant "NFIRAOS\nTrombone\n//NFIRAOS.trombone//" as trombone
+participant "NFIRAOS\nTrombone\n//NFIRAOS.lgsTrombone//" as trombone
 participant "NFIRAOS\nNSEN\n//NFIRAOS.nsen//" as nsen
 participant "NFIRAOS\nNGS Source Sim\n//NFIRAOS.ssNgs//" as ssNgs
 participant "NFIRAOS\nLGS WFS\n//NFIRAOS.lgsWfs//" as lgsWfs
