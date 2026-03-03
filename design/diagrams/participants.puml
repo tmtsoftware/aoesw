@@ -27,7 +27,7 @@ participant "NFIRAOS\nNSEN\n//NFIRAOS.nsen//" as nsen
 participant "NFIRAOS\nNGS Source Sim\n//NFIRAOS.ssNgs//" as ssNgs
 participant "NFIRAOS\nLGS WFS\n//NFIRAOS.lgsWfs//" as lgsWfs
 participant "NFIRAOS\nLGS Source Simulator\n//NFIRAOS.ssLgs//" as ssLgs
-participant "NFIRAOS\nNGS ADC\n//NFIRAOS.vnwFsm//" as vnwAdc
+participant "NFIRAOS\nNGS ADC\n//NFIRAOS.vnwAdc//" as vnwAdc
 participant "NFIRAOS\nNGS WFS FSM\n//NFIRAOS.vnwFsm//" as vnwFsm
 participant "NFIRAOS\nNGS Star Selection\n//NFIRAOS.vnwSsm//" as vnwSsm
 participant "NFIRAOS\nNGS Field Stop\n//NFIRAOS.vnwFieldStop//" as vnwFieldStop
