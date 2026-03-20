@@ -3,5 +3,5 @@ participant "Laser\nComponents" as laser
 participant "Low Power\nMechanisms" as lpm
 participant "BTO\nMechanisms" as bto
 participant "BDM\nShutter" as bdm
-participant "LLT/ACQ\nCovers" as llt
+participant "LLT Cover" as llt
 

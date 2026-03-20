@@ -4,8 +4,14 @@
 !includesub common.puml!variables
 hide unlinked
 
-lgsf -> lgsfBdm ++: select 
-note left: Close BDM shutter
+lgsf -> lgsfOp ++: follow
+note left: Open BTO loops
+lgsf -> lgsfTe ++: follow
+note left: Open BTO loops
+return Completed
+& return
+lgsf -> lgsfLaser ++: laserState
+note left: Set to laser components to ON
 return Completed
 lgsf -> lgsfLp ++: select
 note left: Set to FULL power mode
@@ -13,15 +19,10 @@ return Completed
 lgsf -> lgsfLaser ++: laserState
 note left: Set to laser components to OBSERVATION
 return Completed
-alt If loops not closed
-lgsf -> lgsfOp ++: follow
-note left: Close BTO loops
 lgsf -> lgsfTe ++: follow
-note left: Close BTO loops
+note left: Close BTO loops with LUT & PACs and\nstart K-Mirror following TCS demands
+lgsf -> lgsfOp ++: follow
+note left: Close BTO loops with LUT & PACs
 return Completed
 & return
-end
-lgsf -> lgsfTe ++: lltCover
-note left: Open LLT cover
-return Completed
 ```

@@ -10,9 +10,6 @@ lgsf -> lgsfBdm ++: select
 note left: Close BDM shutter
 return Completed
 & return
-lgsf -> lgsfLp ++: select
-note left: Set to FULL power mode
-return Completed
 lgsf -> lgsfOp ++: follow
 note left: Open BTO loops
 lgsf -> lgsfTe ++: follow
@@ -21,6 +18,9 @@ return Completed
 & return
 lgsf -> lgsfLaser ++: laserState
 note left: Set laser components to STANDBY
+return Completed
+lgsf -> lgsfLp ++: select
+note left: Set to FULL power mode
 return Completed
 lgsf -> lgsfOp ++: $TBD
 note left: Park BTO mechanisms
