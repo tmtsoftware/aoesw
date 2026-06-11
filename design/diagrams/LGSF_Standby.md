@@ -22,9 +22,9 @@ return Completed
 lgsf -> lgsfLp ++: select
 note left: Set to FULL power mode
 return Completed
-lgsf -> lgsfOp ++: $TBD
+lgsf -> lgsfOp ++: park
 note left: Park BTO mechanisms
-lgsf -> lgsfTe ++: $TBD
+lgsf -> lgsfTe ++: park
 note left: Park BTO mechanisms
 return Completed
 & return
